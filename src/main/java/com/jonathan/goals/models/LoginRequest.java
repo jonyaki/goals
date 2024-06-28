@@ -1,6 +1,9 @@
 package com.jonathan.goals.models;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class LoginRequest {
+    @NotEmpty(message = "username es necesario para generar el JWT")
     private String username;
     private String password;
 

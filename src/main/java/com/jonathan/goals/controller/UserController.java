@@ -1,6 +1,6 @@
 package com.jonathan.goals.controller;
 
-
+import jakarta.validation.Valid;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.jonathan.goals.models.LoginRequest;
 import com.jonathan.goals.services.LoginServices;
@@ -18,7 +18,7 @@ public class UserController {
     private LoginServices loginServices;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest, HttpServletResponse response) {
+    public ResponseEntity<String> login(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse response) {
         loginServices.getLogin(loginRequest,response);
         return ResponseEntity.ok("El usuario se logeo correctamente.");
     }
